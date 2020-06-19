@@ -9,7 +9,7 @@ import { GrNext, GrPrevious } from 'react-icons/gr'
 
 const GridWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
 `
 
@@ -18,7 +18,7 @@ const Meta = styled.div`
 `
 
 const SlideWrapper = styled.div`
-  grid-column: 2 / 2;
+  grid-column: 2 / 4;
   grid-row: 1 / -1;
   padding: 5px;
   border-radius: 5px;
@@ -81,8 +81,12 @@ const Slider = () => {
         </SlideWrapper>
         <Button
           css={css`
-            grid-column: 1 / 1;
+            grid-column: 1;
             grid-row: 2 / 2;
+            @media screen and (max-width: 600px) {
+              grid-column: 2;
+              grid-row: 4 / 4;
+            }
           `}
           onClick={() => handlePrevious()}
         >
@@ -90,8 +94,12 @@ const Slider = () => {
         </Button>
         <Button
           css={css`
-            grid-column: 3 / 3;
+            grid-column: 4;
             grid-row: 2 / 2;
+            @media screen and (max-width: 600px) {
+              grid-column: 3;
+              grid-row: 4 / 4;
+            }
           `}
           onClick={() => handleNext()}
         >
